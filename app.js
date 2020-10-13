@@ -1,33 +1,30 @@
 // import functions and grab DOM elements
 
 import { rawPokeData } from './data.js';
+import { findByName } from './utils.js';
 
 const images = document.querySelectorAll('.pokeIm');
 const radios = document.querySelectorAll('input');
-
-
-
-
-export function getRandomPokemon(){
-
-    const index = Math.floor(Math.random() * rawPokeData.length);
-
-    return rawPokeData[index];
-
-
-}
+const pokeCart = [];
 let encounters = 10;
-renderPokemon();
 
-for (let i = 0; i < radios.length; i++) {
-radios[i].addEventListener('change', (e) => {
-    const captured = e.target.value;
-    console.log(captured)
-    renderPokemon();
-    
-});
+//const getPokemonById = document.querySelectorAll('');
 
+
+
+function getRandomPokemon(){
+const index = Math.floor(Math.random() * rawPokeData.length);
+    return rawPokeData[index];
 }
+
+
+
+
+
+
+
+
+
 
 
 function renderPokemon() {
@@ -39,6 +36,9 @@ while (pokemonOne.id === pokemonTwo.id) {
     pokemonOne = getRandomPokemon(rawPokeData);
 
 }
+
+const test = findByName(rawPokeData, pokemonOne.pokemon);
+console.log(test)
 while (pokemonTwo.id === pokemonThree.id) {
     pokemonTwo = getRandomPokemon(rawPokeData);
 
@@ -57,11 +57,39 @@ images[1].src = pokemonTwo.url_image;
 radios[2].value = pokemonThree.pokemon;
 images[2].src = pokemonThree.url_image;
 }
+renderPokemon();
 
 
+for (let i = 0; i < radios.length; i++) {
+radios[i].addEventListener('change', (e) => {
+    const caught = e.target.value;
 
+    //const pokemonInCart = findByName(pokeCart, captured);
+  
+    renderPokemon();
+    
+     
+for (let i = 0; i < radios.length; i++){
+    let item = findByName(pokeCart, radios[i].value);
+   console.log(item)
+    if (!item) {
+        item = {
+            name: radios[i].value,
+            encounters: 1,
+            captured: 0
+        };
+        pokeCart.push(item);
 
-//set event listeners to update state and DOM
-
-
+       }  else {
+        item.encounters++;
+       }
+        if (caught === radios[i].value) {
+            item.captured++;
+            
+        }
+    };
+    console.log(pokeCart)
+    
+})
+}
 

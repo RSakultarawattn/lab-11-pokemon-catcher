@@ -55,15 +55,14 @@ label > input {
     display: none;
 }
 
-
-#caught {
-
-    display: flex;
-    flex-direction: row;
-
-
-
+input[type="radio"]:checked + img{
+    border: solid 6px red;
+    border-radius: 15px;
 }
+
+
+
+
 
 .catch {
 

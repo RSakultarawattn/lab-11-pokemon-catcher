@@ -51,34 +51,24 @@ main {
 }
 
 label > input {
-
+    
+    
     display: none;
+    
+   
 }
 
 input[type="radio"]:checked + img{
     border: solid 6px red;
     border-radius: 15px;
-}
-
-
-
-
-
-.catch {
-
-    height: 150px;
-    width: 150px;
-    border-radius: 100px;
-    box-shadow: 5px 10px black;
-    background-color: purple;
-    font-size: 1.5em;
-    color: white;
-    font-style: italic;
-    
-    
-
     
 }
+
+
+
+
+
+
 section {
     background-color: orange;
     width: 1000px;
@@ -95,6 +85,7 @@ section {
 }
 
 img {
+    
 
     height: 250px;
     width: 250px;
@@ -120,6 +111,14 @@ header {
 
 }
 
+.pokeIm:hover {
+
+    transform: scale(1.2);
+    box-shadow: 5px 5px 5px 5px black;
+    border-radius: 15%;
+    
+
+}
 
 
 footer {

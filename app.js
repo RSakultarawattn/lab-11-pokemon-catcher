@@ -2,13 +2,15 @@
 
 import { rawPokeData } from './data.js';
 import { findByName } from './utils.js';
+import { setInLocalStorage } from './helper-functions.js';
 
 const images = document.querySelectorAll('.pokeIm');
 const radios = document.querySelectorAll('input');
 const pokeCart = [];
-let encounters = 10;
 
-//const getPokemonById = document.querySelectorAll('');
+let encounters = 0;
+
+
 
 
 
@@ -16,14 +18,6 @@ function getRandomPokemon(){
     const index = Math.floor(Math.random() * rawPokeData.length);
     return rawPokeData[index];
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -66,9 +60,10 @@ function addNewEncounter(name, someArray) {
         pokemon: result.pokemon,
         encounters: 0,
         captured: 0
-    }
+    };
     someArray.push(newEncounter);
 }
+
 
 function pokeEncountersIncrement(someName, someArray) {
 
@@ -82,7 +77,7 @@ function pokeEncountersIncrement(someName, someArray) {
 }
 function captureIncrement(someName, someArray) {
 
-    let result = findByName(someArray, someName)
+    let result = findByName(someArray, someName);
     if (!result) {
 
         addNewEncounter(someName, someArray)
@@ -93,23 +88,23 @@ function captureIncrement(someName, someArray) {
 
 for (let i = 0; i < radios.length; i++) {
     radios[i].addEventListener('change', (e) => {
+        encounters++;
         const caught = e.target.value;
         captureIncrement(caught, pokeCart);
-    //const pokemonInCart = findByName(pokeCart, captured);
-  console.log(pokeCart)
+    
         renderPokemon();
-    
-     
         for (let i = 0; i < radios.length; i++){
-   
-   
-
-
-            pokeEncountersIncrement(radios[i].value, pokeCart)
-    
+            pokeEncountersIncrement(radios[i].value, pokeCart);
             
+        }
+        if (encounters === 10) {
 
+            setInLocalStorage('RESULTS', pokeCart);
         }
     });
+    
 }
 
+
+//setInLocalStorage('RESULTS', pokeCart);
+renderPokemon();

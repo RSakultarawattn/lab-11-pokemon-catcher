@@ -1,8 +1,27 @@
+
+import { rawPokeData } from './data.js';
+import { RESULTS } from './constants.js';
+
+export function getFromLocalStoragePoke() {
+
+    let localStoragePoke = JSON.parse(localStorage.getItem(RESULTS));
+
+    if (!localStoragePoke) {
+    
+        const stringyPoke = JSON.stringify(rawPokeData);
+
+        localStorage.setItem(RESULTS, stringyPoke);
+        localStoragePoke = rawPokeData;
+    }
+    return localStoragePoke;
+}
+
+
 export function getFromLocalStorage(key) {
 
-    const item = localStorage.getItem(key);
+    const getKey = localStorage.getItem(key);
 
-    return JSON.parse(item);
+    return JSON.parse(getKey);
 
 
 }

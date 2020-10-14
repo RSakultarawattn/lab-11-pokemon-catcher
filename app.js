@@ -55,7 +55,7 @@ renderPokemon();
 
 function addNewEncounter(name, someArray) {
 
-    const result = findByName(rawPokeData, name)
+    const result = findByName(rawPokeData, name);
     const newEncounter = {
         pokemon: result.pokemon,
         encounters: 0,
@@ -67,11 +67,11 @@ function addNewEncounter(name, someArray) {
 
 function pokeEncountersIncrement(someName, someArray) {
 
-    let result = findByName(someArray, someName) 
+    let result = findByName(someArray, someName);
     if (!result) {
 
-        addNewEncounter(someName, someArray)
-        result = findByName(someArray, someName)
+        addNewEncounter(someName, someArray);
+        result = findByName(someArray, someName);
     }
     result.encounters++;
 }
@@ -80,8 +80,8 @@ function captureIncrement(someName, someArray) {
     let result = findByName(someArray, someName);
     if (!result) {
 
-        addNewEncounter(someName, someArray)
-        result = findByName(someArray, someName)
+        addNewEncounter(someName, someArray);
+        result = findByName(someArray, someName);
     }
     result.captured++;
 }
@@ -100,11 +100,20 @@ for (let i = 0; i < radios.length; i++) {
         if (encounters === 10) {
 
             setInLocalStorage('RESULTS', pokeCart);
+            window.location.href = '../Results/index.html';
         }
+        
+            
+       
+        
     });
+
     
-}
+       
+   
+    
 
 
 //setInLocalStorage('RESULTS', pokeCart);
-renderPokemon();
+    renderPokemon();
+}

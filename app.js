@@ -6,6 +6,7 @@ import { setInLocalStorage } from './helper-functions.js';
 
 const images = document.querySelectorAll('.pokeIm');
 const radios = document.querySelectorAll('input');
+const restartButton = document.querySelector('button');
 const pokeCart = [];
 
 let encounters = 0;
@@ -100,7 +101,7 @@ for (let i = 0; i < radios.length; i++) {
         if (encounters === 10) {
 
             setInLocalStorage('RESULTS', pokeCart);
-            window.location.href = '../Results/index.html';
+            window.location.href = './Results/index.html';
         }
         
             
@@ -108,6 +109,13 @@ for (let i = 0; i < radios.length; i++) {
         
     });
 
+    // restartButton.addEventListener('click', () => {
+
+    //     localStorage.clear();
+    //     window.location.href = './index.html';
+       
+        
+    // });
     
        
    

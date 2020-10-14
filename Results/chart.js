@@ -2,7 +2,7 @@ import { getFromLocalStorage } from '../helper-functions.js';
 
 
 
-
+const restartButton = document.querySelector('button');
 const outcome = getFromLocalStorage('RESULTS');
 console.log(outcome)
 const pokeName = outcome.map((item) => {
@@ -95,3 +95,10 @@ var myOtherChart = new Chart(ctx, {
     }
 });
 
+restartButton.addEventListener('click', () => {
+
+    localStorage.clear();
+    window.location.href = '../index.html';
+   
+    
+});

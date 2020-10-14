@@ -2,19 +2,29 @@ import { getFromLocalStorage } from '../helper-functions.js';
 
 
 
+const outcome = getFromLocalStorage('RESULTS');
 
+const pokeName = outcome.map((item) => {
+    return item.pokemon;
+});
 
+const encountered = outcome.map((item) => {
+    return item.encountered;
+});
 
-//const encountered
+const captured = outcome.map((item) => {
+    return item.captured;
+});
+
 var ctx = document.getElementById('myChart').getContext('2d');
 
-new Chart(ctx, {
+var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: pokeName,
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'Encountered',
+            data: encountered,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

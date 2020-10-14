@@ -26,8 +26,17 @@ body {
     
     font-family: 'Titillium Web', sans-serif;
     background-color: orange;
-}
 
+
+
+
+}
+.gutter-right-logo > img {
+    margin-right: 20px;
+    height: 300px;
+    width: 500px;
+    animation: pulse 10s; duration timing-function delay iteration-count direction fill-mode;
+}
 
 main {
     display: flex;
@@ -50,6 +59,8 @@ main {
 
 }
 
+
+
 label > input {
     
     
@@ -60,7 +71,8 @@ label > input {
 
 input[type="radio"]:checked + img{
     border: solid 6px red;
-    border-radius: 15px;
+    border-radius: 15%;
+    background-color: red;
     
 }
 
@@ -79,7 +91,7 @@ section {
     align-items: center;
     padding-top: var(--gutter);
     padding-bottom: var(--gutter);
-    margin-top: var(--gutter);
+    margin-top: 15%;
     margin-bottom: var(--gutter);
     
 }
@@ -143,9 +155,7 @@ h2 {
     font-weight: bold;
 }
 
-.gutter-right {
-    margin-right: 20px;
-}
+
 
 .main-logo {
     animation: pulse 5s infinite ease-in-out;

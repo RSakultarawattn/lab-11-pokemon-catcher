@@ -1,4 +1,4 @@
-import { getFromLocalStorage } from './helper-functions.js';
+import { getFromLocalStorage } from '../helper-functions.js';
 
 
 
@@ -16,6 +16,7 @@ const encountered = outcome.map((item) => {
 const captured = outcome.map((item) => {
     return item.captured;
 });
+
 
 var ctx = document.getElementById('myChart').getContext('2d');
 

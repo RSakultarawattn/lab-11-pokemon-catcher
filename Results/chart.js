@@ -1,4 +1,4 @@
-import { getFromLocalStorage } from '../helper-functions.js';
+import { getFromLocalStorage } from './helper-functions.js';
 
 
 
